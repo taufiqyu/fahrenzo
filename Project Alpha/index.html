@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fahrenzo Birru Alhaitham</title>
+    <!-- font here -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+/* Set font dan ukuran teks global */
+body {
+  font-family: "Raleway", serif; /* Menggunakan font Raleway, jika tidak ada, gunakan serif */
+  font-size: 1.1rem; /* Ukuran font sedikit lebih besar dari ukuran standar */
+}
+h1,h2 {
+  font-family: "Dancing Script";
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+/* Navbar - Gaya untuk latar belakang navbar */
+.bg-gradient {
+  background: linear-gradient(90deg, #0066cc, #003d99) !important; /* Gradasi biru untuk navbar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan halus untuk memberi kesan kedalaman */
+  padding: 10px 0; /* Padding di atas dan bawah navbar */
+}
+
+/* Gaya untuk link di dalam navbar */
+.nav-pills .nav-link {
+  color: white; /* Warna teks putih */
+  font-size: 1.1rem; /* Ukuran font sedikit lebih kecil agar lebih proporsional */
+  padding: 8px 12px; /* Jarak dalam antara teks dan batas link */
+  border-radius: 8px; /* Membuat sudut link lebih halus */
+  background: transparent; /* Link tidak memiliki latar belakang secara default */
+  transition: all 0.3s ease-in-out; /* Animasi transisi halus saat hover */
+}
+
+/* Efek hover saat link dipilih */
+.nav-pills .nav-link:hover {
+  background: rgba(255, 255, 255, 0.3); /* Latar belakang sedikit transparan saat hover */
+  color: #ffcc00; /* Warna teks berubah menjadi kuning */
+  transform: translateY(-2px); /* Memberikan efek "melayang" saat hover */
+  animation: hover-bounce 0.3s ease-in-out; /* Menambahkan animasi bounce saat hover */
+}
+
+/* Tab yang aktif di navbar */
+.nav-pills .nav-link.active {
+  background: #004d99; /* Latar belakang solid biru untuk tab aktif */
+  color: #ffcc00; /* Warna teks kuning untuk tab aktif */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Bayangan lebih tajam untuk tab aktif */
+}
+
+/* Animasi untuk efek bounce saat hover */
+@keyframes hover-bounce {
+  0% { transform: translateY(0); } /* Mulai dari posisi normal */
+  50% { transform: translateY(-2px); } /* Melayang sedikit ke atas */
+  100% { transform: translateY(0); } /* Kembali ke posisi semula */
+}
+
+/* Gaya untuk konten tab */
+.tab-content .tab-pane {
+  align-items: center; /* Menjaga elemen tetap di tengah */
+  text-align: left; /* Menyelaraskan teks ke kiri */
+}
+
+.tab-content h1, .tab-content h2, .tab-content p {
+  margin: 20px 0; /* Jarak antar elemen dalam konten */
+  color: #343a40; /* Warna teks utama */
+}
+
+/* Gaya untuk konten tab secara keseluruhan */
+.tab-content {
+  background-image: url('img/bg-index.jpg'); /* Pastikan URL gambar benar */
+  background-size: cover; /* Gambar akan memenuhi seluruh halaman */
+  background-position: center; /* Posisikan gambar di tengah */
+  background-repeat: no-repeat; /* Jangan ulangi gambar */
+  min-height: 100vh; /* Tinggi minimum adalah 100% dari viewport */
+  border-radius: 0px; /* Sudut melengkung pada konten */
+  padding: 30px 30px 70px 30px; /* Jarak antara konten dan batas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Bayangan halus untuk kedalaman */
+  max-width: 900px; /* Lebar maksimum konten */
+  margin: 0 auto; /* Pusatkan konten di layar */
+  color: #343a40; /* Warna teks */
+}
+
+/* Gaya untuk elemen list di dalam tab */
+.tab-content li {
+  background-color: white; /* Latar belakang putih */
+  border-radius: 10px; /* Sudut melengkung */
+  padding: 10px; /* Jarak dalam elemen list */
+  margin: 10px; /* Jarak antar list */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Bayangan pada elemen list */
+}
+
+/* Gaya untuk item proyek di dalam konten tab */
+.tab-content .project-item {
+  background: #f9f9f9; /* Latar belakang abu-abu muda */
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center; /* Rata tengah teks di dalam proyek */
+  border: solid 1px grey; /* Garis batas abu-abu */
+  margin-bottom: 15px; /* Jarak bawah antar item proyek */
+}
+
+.tab-content .project-item h3 {
+  font-size: 1.2rem; /* Ukuran font sedikit lebih kecil untuk judul proyek */
+  margin-bottom: 0.5rem; /* Jarak bawah kecil antara judul dan isi proyek */
+}
+
+.tab-content .story {
+  background: #f9f9f9; /* Latar belakang abu-abu muda */
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center; /* Rata tengah teks di dalam proyek */
+  border: solid 1px grey; /* Garis batas abu-abu */
+  margin-bottom: 15px; /* Jarak bawah antar item proyek */
+}
+
+.tab-content .story h3 {
+  font-size: 1.2rem; /* Ukuran font sedikit lebih kecil untuk judul proyek */
+  margin-bottom: 0.5rem; /* Jarak bawah kecil antara judul dan isi proyek */
+}
+
+#quiz li{
+  padding: 0 10px 10px 10px;
+}
+/* Dropdown Menu */
+.dropdown-menu {
+  background: linear-gradient(145deg, #004080, #00264d); /* Gradasi lebih kaya */
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Efek melayang */
+}
+
+.dropdown-item {
+  color: white;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 6px; /* Sedikit melengkung */
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out; /* Hover halus */
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffcc00;
+}
+
+/* Gaya untuk bagian galeri */
+#gallery {
+  padding: 40px 20px; /* Jarak dalam galeri */
+  background-color: #f9f9f9; /* Latar belakang galeri */
+}
+
+.gallery-title {
+  text-align: center; /* Menyelaraskan judul galeri ke tengah */
+  font-size: 2rem; /* Ukuran font besar untuk judul */
+  color: #333; /* Warna teks gelap */
+  margin-bottom: 30px; /* Jarak bawah antara judul dan galeri */
+}
+
+/* Gaya untuk grid pada galeri */
+.gallery-grid {
+  display: grid; /* Menggunakan grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mengatur kolom grid responsif */
+  gap: 20px; /* Jarak antar item dalam grid */
+  justify-items: center; /* Menyelaraskan item ke tengah secara horizontal */
+  align-items: center; /* Menyelaraskan item ke tengah secara vertikal */
+}
+
+/* Gaya untuk item dalam galeri */
+.gallery-item {
+  overflow: hidden; /* Menyembunyikan elemen yang melampaui batas */
+  border-radius: 10px; /* Sudut melengkung pada item galeri */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek transisi saat hover */
+}
+
+.gallery-item img {
+  width: 100%; /* Gambar mengisi lebar item */
+  height: 100%; /* Gambar mengisi tinggi item */
+  object-fit: cover; /* Memastikan gambar memenuhi area tanpa merusak rasio aspek */
+  display: block; /* Menyembunyikan spasi bawah gambar */
+  border-radius: 10px; /* Sudut melengkung pada gambar */
+  transition: transform 0.3s ease; /* Efek transisi untuk gambar */
+}
+
+/* Efek hover pada item galeri */
+.gallery-item:hover {
+  transform: scale(1.05); /* Memperbesar sedikit saat hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan lebih tajam saat hover */
+}
+
+/* Efek hover pada gambar */
+.gallery-item img:hover {
+  transform: scale(1.1); /* Memperbesar gambar sedikit saat hover */
+}
+</style>
+  </head>
+  
+  <body>
+
+<div>
+  <!-- Navbar -->
+<ul class="nav nav-pills justify-content-between fixed-bottom bg-gradient" id="myTab" role="tablist" style="padding: 10px 15px;">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#intro" type="button" role="tab" aria-controls="intro" aria-selected="true">
+      <i class="fas fa-home"></i>
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">
+      <i class="fas fa-user"></i>
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab" aria-controls="skills" aria-selected="false">
+      <i class="fas fa-lightbulb"></i>
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="projects" aria-selected="false">
+      <i class="fas fa-briefcase"></i>
+    </button>
+  </li>
+  <li class="nav-item dropdown" role="presentation">
+    <button class="nav-link dropdown-toggle" id="more-tab" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fas fa-ellipsis-h"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="more-tab">
+      <li><button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#recipes" type="button" role="tab">Resep Enzo</button></li>
+      <li><button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#dictionary" type="button" role="tab">Kamus Bayi</button></li>
+      <li><button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#diary" type="button" role="tab">Ibu Hebat</button></li>
+      <li><button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#letters" type="button" role="tab">Untuk Ibu</button></li>
+      <li><button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab">Kuis</button></li>
+      <li><button class="dropdown-item" data-bs-toggle="tab" data-bs-target="#gallery" type="button" role="tab">Gallery</button></li>
+    </ul>
+  </li>
+</ul>
+
+  <!-- Konten Tab -->
+  <div class="content-wrapper">
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+      <h1>Selamat datang di Rumah Kecil Penuh Kekacauan!</h1>
+        <!-- Gambar -->
+        <img src="img/keluarga.jpg" alt="Foto keluarga" class="profile-image" style="width: 100%; max-width: 300px; display: block; margin: 20px auto; border-radius: 100px;">
+      <p>Di sini, kamu akan menemukan petualangan sehari-hari kami yang penuh tawa dan kegembiraan—terutama dari si kecil yang selalu punya kejutan! <br>Dari proyek Enzo yang tidak pernah selesai, sampai bola biru yang jadi mainan favoritnya, semuanya ada di sini. Ibu yang hebat, ayah yang kadang bingung, dan Enzo yang lebih suka main bola daripada tidur—ini adalah tempat di mana kisah lucu kami tak pernah habis! Siap-siap tertawa ya!
+</p>
+    </div>
+    <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+      <h2>Fahrenzo Birru Alhaitham</h2>
+        <!-- Gambar -->
+        <img src="img/enzo.jpg" alt="Foto Enzo" class="profile-image" style="width: 100%; max-width: 300px; display: block; margin: 20px auto; border-radius: 100px;">
+        
+      <p>Seorang bayi berusia satu tahun adalah seorang penjelajah kecil yang penuh rasa ingin tahu, belajar mengenal dunia di sekitarnya dengan cara yang paling murni dan menyenangkan. Dunia baginya adalah tempat baru yang penuh keajaiban, di mana setiap sentuhan, suara, dan rasa menjadi pelajaran berharga. Ia mulai mengeksplorasi berbagai benda dengan tangan mungilnya, mencoba menggenggam, merasakan, bahkan mungkin mencicipi apa yang ada di depannya. Ketika melihat kerlip lampu, mendengar suara musik, atau merasakan tekstur lembut mainannya, ekspresi wajahnya berbinar penuh kekaguman.<br><br>Langkah pertamanya, meski terkadang goyah, adalah bukti keberanian dan semangat untuk tumbuh. Ia mengamati orang-orang di sekitarnya, terutama kedua orang tuanya, yang menjadi pusat dunia kecilnya. Setiap senyuman mereka, setiap kata yang diucapkan, menjadi dorongan untuknya belajar bicara dan mengenali emosi. Tawa lepasnya saat bermain kerupuk favorit menunjukkan betapa sederhana dan murninya kebahagiaan di usia ini. Meski kadang mogok makan dan memilih memalingkan wajah setelah dua suap, itu menjadi bagian dari prosesnya memahami rasa dan kebiasaan makan.<br><br>Ia juga belajar mengenal cinta dan perhatian melalui pelukan hangat ibunya atau canda tawa sang ayah. Dunia sosialnya mulai berkembang saat ia tersenyum pada orang baru, mencoba meniru gerakan, atau bahkan menangis ketika merasa tidak nyaman. Setiap hari adalah petualangan baru, dan setiap momen bersama Enzo adalah pengingat betapa berharganya tahap-tahap kecil dalam kehidupan manusia. Dunia mungkin terlihat besar dan menakutkan, tetapi di mata seorang bayi, ia adalah tempat yang penuh potensi dan kebahagiaan menanti untuk ditemukan.
+</p>
+        <h2>Nurul Dwiyanti: <br>Istri Hebat, Ibu Luar Biasa</h2>
+        
+        <!-- Gambar -->
+        <img src="img/nurul.jpg" alt="Foto Nurul" class="profile-image" style="width: 100%; max-width: 300px; display: block; margin: 20px auto; border-radius: 100px;">
+
+        <!-- Paragraf Deskripsi -->
+        <p>
+            Nurul bukan hanya istri, tapi juga teman hidup yang selalu membuatku merasa lengkap. Dia adalah sosok luar biasa yang dengan sabar dan cinta merawat rumah, menjaga Enzo, dan tetap tersenyum meski aku hanya bisa pulang seminggu sekali.
+        </p>
+        <p>
+            Sebagai suami, aku sering merasa kagum dengan caranya menjalani hari-hari. Ia mampu menjadi ibu yang penuh kasih untuk Enzo, memastikan anak kami tumbuh sehat, ceria, dan pintar. Aku tahu tugas ini tidak mudah, apalagi ia juga menjaga rumah sambil menemani Akong yang tinggal bersama kami.
+        </p>
+        <p>
+            Ketika aku jauh, aku tahu ia tidak pernah sendiri. Rafa dan Rendi, keponakan kami, sering datang bermain dengan Enzo, membawa keceriaan di rumah. Tapi aku juga tahu, di balik tawa dan senyumnya, ada rindu yang ia simpan untukku.
+        </p>
+        <p>
+            Nurul, jika kamu membaca ini, aku ingin kamu tahu: aku sangat bersyukur memilikimu. Terima kasih telah menjadi istri yang kuat, ibu yang penuh cinta, dan rumah bagi hatiku. Aku pulang membawa rindu, tapi aku tahu di sini ada kamu yang menjadikan segalanya indah.
+        </p>
+    </div>
+    <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+      <h2>Momen Enzo & Ibu</h2>
+<div class="story">
+  <h3>"Satu Nasi, Dua Nasi, Lihat Burung!"</h3>
+  <p>Makan bersama Enzo adalah momen yang selalu penuh kejutan. Suapan pertama berjalan mulus. Suapan kedua? Masih oke. Tapi begitu sendok ketiga datang, Enzo tiba-tiba melihat ke luar jendela, menunjuk-nunjuk, dan berkata, "Eh!"</p>
+  <p>Kami menoleh, mencari apa yang ia tunjuk. "Burung, ya?" tebak kami. Sambil tersenyum, ia melipat tangannya dengan tenang seolah berkata, <em>"Sudah, cukup makan hari ini. Fokus kita ke burung saja sekarang."</em></p>
+  <p>Burungnya? Tidak ada. Hanya angin lewat. Tapi Enzo berhasil menghindari suapan berikutnya dengan cara yang sangat elegan.</p>
+</div>
+
+<div class="story">
+  <h3>"Tas Ibu adalah Dunia Baru"</h3>
+  <p>Setiap kali ibunya lupa menyembunyikan tas make up, Enzo langsung menjadikannya proyek eksplorasi harian. Ia akan mengeluarkan lipstik dan mencoba membuka tutupnya (dengan cara menggigit, tentu saja). Eyeliner? Itu pasti mainan pesawat yang harus terbang di atas sofa.</p>
+  <p>Saat ibunya menemukan dia dalam <em>aksi</em>, Enzo hanya tertawa kecil dan mengangkat kuas bedak seperti ingin berkata, <em>"Aku cuma mau bantu, Bu."</em> Hasilnya? Ruang tamu penuh bedak, dan Enzo puas dengan <em>look</em> barunya: ala bayi kabur dari salon.</p>
+</div>
+
+<div class="story">
+  <h3>"Botol? No. Gelas? Yes."</h3>
+  <p>Enzo sudah memutuskan sejak dini: <em>botol itu untuk bayi kecil</em>. Dia hanya mau minum dari gelas, seperti orang dewasa. Setiap kali gelasnya dipegang, ia akan memasang ekspresi serius sambil menyesap perlahan. Tapi, aksi minumnya sering diikuti dengan sedikit tumpahan di baju.</p>
+  <p>Saat kami menawarkan botol susu, ia akan menggeleng kuat-kuat. "Aku sudah besar, jangan botol lagi!" protesnya tanpa suara. Kadang, ketika gelasnya kosong, ia akan mengetuknya di meja seperti orang minta refill kopi di kafe.</p>
+</div>
+
+<div class="story">
+  <h3>"Bantu Beres-Beres, Katanya..."</h3>
+  <p>Enzo suka sekali membereskan barang-barang. Tapi konsep “beres” menurutnya sedikit berbeda. Buku di rak diturunkan, mainan di keranjang dihamburkan, dan kaus kaki ayah dipindahkan ke bawah sofa. Saat kami menatapnya, ia hanya menunjuk-nunjuk mainan yang berserakan sambil tersenyum, seperti ingin berkata, <em>"Lihat, rapi kan? Semua sudah keluar dari tempatnya!"</em></p>
+  <p>Dan begitulah, rumah kami selalu punya gaya berantakan yang artistik berkat si kecil.</p>
+</div>
+    </div>
+    <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+      <h2>Tugas Enzo</h2>
+<div class="project-item">
+  <h3>"Tes Ketahanan Mainan dengan Gigit-Gigit Maksimal"</h3>
+  <p>Pastikan semua mainan lulus uji gigitan dan tahan air liur.</p>
+</div>
+
+<div class="project-item">
+  <h3>"Peluk Mainan, Lempar, Lalu Menangis Memintanya Kembali"</h3>
+  <p>Strategi baru untuk melihat seberapa sabar ibu merespons.</p>
+</div>
+
+<div class="project-item">
+  <h3>"Penjelajahan Lemari yang Terbuka"</h3>
+  <p>Bongkar semua isi lemari, lalu kabur sebelum tertangkap.</p>
+</div>
+
+<div class="project-item">
+  <h3>"Teriakan Ultra: Alarm Otomatis Tanpa Baterai"</h3>
+  <p>Uji suara di tengah malam untuk memastikan semua terbangun.</p>
+</div>
+
+<div class="project-item">
+  <h3>"Mencicipi Dunia: Semua Benda Masuk Mulut"</h3>
+  <p>Dari remote TV hingga ujung sepatu, semua perlu dicoba!</p>
+</div>
+    </div>
+    <div class="tab-pane fade" id="recipes" role="tabpanel" aria-labelledby="recipes-tab">
+      <h2>Resep Favorit Enzo</h2>
+        <p>Berikut adalah 15 resep makanan favorit bayi yang lezat dan bergizi:</p>
+        <ul>
+            <li>Puree Wortel dan Kentang: Rebus wortel dan kentang, haluskan dengan sedikit air.</li>
+            <li>Bubur Alpukat Pisang: Campur alpukat matang dan pisang, haluskan hingga lembut.</li>
+            <li>Sup Labu Kuning: Rebus labu kuning dengan kaldu ayam, haluskan hingga lembut.</li>
+            <li>Telur Dadar Bayi: Kocok telur, tambahkan keju parut, masak di atas api kecil.</li>
+            <li>Puree Apel dan Pir: Kukus apel dan pir, blender hingga halus.</li>
+            <li>Nasi Tim Ayam: Masak nasi dengan kaldu ayam, tambahkan ayam cincang dan sayur.</li>
+            <li>Bola Ubi Manis: Kukus ubi, bentuk bola kecil, sajikan.</li>
+            <li>Puree Bayam dan Tahu: Rebus bayam dan tahu, blender dengan sedikit air.</li>
+            <li>Bubur Oat Pisang: Masak oatmeal dengan susu, tambahkan pisang yang dihaluskan.</li>
+            <li>Puree Kacang Merah: Rebus kacang merah hingga lunak, haluskan dengan sedikit air.</li>
+            <li>Sup Jagung Manis: Rebus jagung manis, haluskan, tambahkan sedikit kaldu ayam.</li>
+            <li>Roti Kukus Keju: Potong roti kecil-kecil, taburi keju parut, kukus sebentar.</li>
+            <li>Yogurt Buah: Campur yogurt plain dengan puree buah favorit bayi.</li>
+            <li>Bola Kentang Sayur: Rebus kentang, tambahkan sayur cincang, bentuk bola kecil.</li>
+            <li>Pancake Mini Pisang: Campur pisang lumat, sedikit tepung, goreng kecil-kecil.</li>
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="dictionary" role="tabpanel" aria-labelledby="dictionary-tab">
+      <h2>Kamus Bahasa Enzo</h2>
+        <p>Pernah bingung dengan kata-kata bayi? Berikut terjemahannya:</p>
+        <ul>
+            <li><strong>"Ma-ma-ma!"</strong>: Aku lapar, ma. Cepetan makanannya!</li>
+            <li><strong>"Da-da-da!"</strong>: Ayah, ajak main! Jangan sibuk dengan HP terus!</li>
+            <li><strong>"Bwaaaahh!"</strong>: Aku bosan, kasih aku sesuatu yang seru!</li>
+            <li><strong>"Eh-eh-eh!"</strong>: Ada sesuatu di popokku, tolong dicek, deh.</li>
+            <li><strong>"Ngeng-ngeng!"</strong>: Aku suka mobil atau motor. Bawa aku jalan-jalan!</li>
+            <li><strong>"Tat-ta!"</strong>: Lihat aku pintar melambaikan tangan. Bye-bye!</li>
+            <li><strong>"Mmm...nom nom!"</strong>: Kerupuk mana kerupuk? Aku sudah siap makan!</li>
+            <li><strong>"Aaaaaaahhh!"</strong>: Perhatikan aku! Jangan sibuk ngobrol, ya!</li>
+            <li><strong>"Guk-guk!"</strong>: Itu anjing, kan? Aku suka binatang itu!</li>
+            <li><strong>"Naaa-naaa!"</strong>: Aku mau nenen! Kok nggak dikasih-kasih?</li>
+            <li><strong>"Dum-dum-dum!"</strong>: Aku main drum imajiner, lihat aku bakat musik!</li>
+            <li><strong>"Baba-baba!"</strong>: Balon atau botol, pokoknya benda bundar favoritku!</li>
+            <li><strong>"Pffttt..."</strong>: Aku bosan. Lihat aku bikin gelembung ludah, seru kan?</li>
+            <li><strong>"Wheee!"</strong>: Aku sedang menikmati momen! Lihat senyumanku.</li>
+            <li><strong>"Kaaa!"</strong>: Lihat burung di sana, itu suara burung, kan?</li>
+            <li><strong>"Mamam!"</strong>: Bukan hanya makanan, aku mau kerupuk juga, ya!</li>
+            <li><strong>"Gaaaahhh!"</strong>: Aku ngantuk tapi nggak mau tidur. Hiburlah aku!</li>
+            <li><strong>"Ngeeeh!"</strong>: Itu mainanku! Jangan diambil, aku nggak suka.</li>
+            <li><strong>"Tok-tok-tok!"</strong>: Aku ketok-ketok lantai, apa suaranya lucu?</li>
+            <li><strong>"Yaaayyy!"</strong>: Aku bahagia! Terus temani aku bermain, ya!</li>
+        </ul>
+    </div>
+    <div class="tab-pane fade" id="diary" role="tabpanel" aria-labelledby="diary-tab">
+        <h2>Diary Ibu Hebat</h2>
+        <p>Catatan kecil seorang ibu yang terus belajar setiap hari:</p>
+      <p><em>Hari ini, aku melihat bayi kecilku belajar hal baru lagi. Ia melambaikan tangan kecilnya, tersenyum sambil berkata sesuatu yang hanya kami berdua yang bisa mengerti. Mungkin itu kata "terima kasih" dalam bahasanya. Aku tertawa, lalu aku teringat, betapa dulu aku takut menghadapi peran ini. Takut tidak menjadi cukup baik.</em></p>
+            <p><em>Setiap pagi, aku bangun untuk menyaksikan senyummu. Aku lupa rasa lelah, lupa mata yang mengantuk, karena tawa kecilmu adalah obat paling mujarab. Bahkan ketika kamu hanya makan dua suap hari ini, aku tetap bangga, karena aku tahu, kita melangkah sedikit lebih maju dari kemarin.</em></p>
+            <p><em>Di balik semua itu, ada cinta yang tak pernah habis. Cinta untuk suamiku yang terus berusaha menjadi ayah terbaik, meski kadang sedikit kaku saat mengganti popok. Cinta untuk diriku sendiri, yang mulai percaya bahwa aku cukup kuat untuk menghadapi semuanya. Dan tentu saja, cinta untuk kamu, nak, yang menjadi alasan terindah kami untuk terus berjuang.</em></p>
+            <p><em>Terima kasih, ya, sudah mengajarkan Ibu banyak hal. Mengajarkan arti sabar, arti bersyukur, dan arti bahagia dalam hal-hal kecil. Kamu adalah guru terbaikku. Aku mungkin tidak sempurna, tapi aku janji akan menjadi ibu yang selalu ada untukmu. </em></p>
+            <p><em>Hari ini, aku belajar lagi. Hidup mungkin tidak selalu mudah, tapi cinta keluarga ini membuat semuanya menjadi berharga.</em></p>
+            <p><strong>- Ibumu yang selalu mencintaimu</strong></p>
+    </div>
+    <div class="tab-pane fade" id="letters" role="tabpanel" aria-labelledby="letters-tab">
+        <h2>Diary Enzo untuk Ibu</h2>
+        <p>Catatan kecilku untuk ibu tercinta:</p>
+        <article>
+            <p><em>Halo Ibu,</em></p>
+            <p><em>Hari ini aku ingin bilang sesuatu yang belum bisa aku ucapkan dengan kata-kata. Tapi aku harap, lewat senyum kecilku, tepuk tanganku, dan tatapan mataku, Ibu bisa mengerti bahwa aku sangat mencintaimu.</em></p>
+            <p><em>Terima kasih sudah bangun lebih pagi dari siapa pun untuk menyiapkan semuanya. Aku tahu, kadang aku suka bangun tengah malam dan mengganggu tidur Ibu, tapi Ibu tetap datang dengan senyum, memelukku, dan membuatku merasa aman. Aku nggak tahu bagaimana cara membalas itu semua, jadi aku cuma bisa memelukmu erat.</em></p>
+            <p><em>Terima kasih juga karena Ibu nggak pernah menyerah saat aku cuma makan dua suap. Aku tahu itu bikin Ibu sedih, tapi aku janji suatu hari nanti aku akan makan lebih banyak, supaya Ibu nggak khawatir lagi.</em></p>
+            <p><em>Dan aku mau bilang, aku bangga punya ibu sepertimu. Kamu selalu sabar ketika aku rewel, selalu menciumku meskipun bajuku sudah belepotan bubur. Aku bahagia sekali ketika Ibu tertawa saat aku menirukan suara-suara lucu. Rasanya aku jadi anak paling hebat di dunia!</em></p>
+            <p><em>Ibu, aku tahu aku masih kecil, masih belajar banyak hal, dan mungkin aku belum bisa bilang "aku sayang Ibu" dengan jelas. Tapi suatu hari nanti, aku janji akan membuat Ibu lebih bangga lagi. Untuk sekarang, aku cuma ingin bilang terima kasih. Karena Ibu, hidupku terasa hangat, aman, dan penuh cinta.</em></p>
+            <p><strong>- Anak kecilmu yang mencintaimu lebih dari apa pun</strong></p>
+    </div>
+    <div class="tab-pane fade" id="quiz" role="tabpanel" aria-labelledby="quiz-tab">
+      <h2>Kuis: Siapa yang Paling Sayang Enzo?</h2>
+        <p>Selamat datang di kuis yang akan mengungkap siapa yang paling sayang si kecil! Pilih jawaban yang paling tepat dan temukan hasilnya di akhir!</p>
+        <form id="quiz-form">
+            <ol>
+                <li>
+                    <p>Siapa yang paling sering terbangun tengah malam untuk menyusui atau mengganti popok?</p>
+                    <label><input type="radio" name="q1" value="a"> Ayah, karena dia merasa kasihan</label><br>
+                    <label><input type="radio" name="q1" value="b"> Ibu, tentu saja, karena itu sudah jadi keahlian</label><br>
+                    <label><input type="radio" name="q1" value="c"> Enzo, karena dia bangun setiap saat untuk makan</label>
+                </li>
+                <li>
+                    <p>Siapa yang lebih sering bikin Enzo tertawa terbahak-bahak?</p>
+                    <label><input type="radio" name="q2" value="a"> Ayah, dengan dance ala "robot"</label><br>
+                    <label><input type="radio" name="q2" value="b"> Ibu, dengan suara lucu dan ekspresi wajah yang tidak masuk akal</label><br>
+                    <label><input type="radio" name="q2" value="c"> Enzo, karena setiap hal yang dilihatnya lucu</label>
+                </li>
+                <li>
+                    <p>Siapa yang paling sering memberikan ciuman di pipi Enzo?</p>
+                    <label><input type="radio" name="q3" value="a"> Ayah, karena dia penasaran pipi Enzo bisa selembut itu</label><br>
+                    <label><input type="radio" name="q3" value="b"> Ibu, karena pipi Enzo adalah bagian yang paling manis untuk dicium</label><br>
+                    <label><input type="radio" name="q3" value="c"> Enzo, karena dia mencoba menggumamkan ciuman ke Ibu dan Ayah</label>
+                </li>
+                <li>
+                    <p>Siapa yang lebih sering melarang orang lain menggendong Enzo?</p>
+                    <label><input type="radio" name="q4" value="a"> Ayah, karena dia takut Enzo jatuh</label><br>
+                    <label><input type="radio" name="q4" value="b"> Ibu, karena "cuma Ibu yang bisa menggendong Enzo dengan benar"</label><br>
+                    <label><input type="radio" name="q4" value="c"> Enzo, dengan cara merengek setiap kali ada orang lain yang mencoba menggendong</label>
+                </li>
+                <li>
+                    <p>Siapa yang paling sering membuat Enzo ketiduran saat digendong?</p>
+                    <label><input type="radio" name="q5" value="a"> Ayah, karena dia pasti menyanyikan lagu yang monoton</label><br>
+                    <label><input type="radio" name="q5" value="b"> Ibu, karena dia selalu menyusun rutinitas tidur yang sempurna</label><br>
+                    <label><input type="radio" name="q5" value="c"> Enzo, karena dia sudah kelelahan bermain sepanjang hari</label>
+                </li>
+            </ol>
+            <button type="submit">Kirim Jawaban</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+                <h2 class="gallery-title">Gallery</h2>
+                <div class="gallery-grid">
+                    <!-- Tambahkan foto di dalam elemen <img> -->
+                    <div class="gallery-item">
+                        <img src="img/photo1.jpg" alt="Foto 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/photo2.jpg" alt="Foto 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/photo3.jpg" alt="Foto 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/photo4.jpg" alt="Foto 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/photo5.jpg" alt="Foto 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/photo6.jpg" alt="Foto 6">
+                    </div>
+                </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Audio -->
+    <audio id="background-audio" loop>
+        <source src="audio/7years.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+  <script>
+        
+  // Ambil elemen audio dan tab "About"
+const audio = document.getElementById('background-audio');
+const aboutTab = document.getElementById('about-tab');
+
+// Fungsi untuk memutar audio saat pindah ke tab "Intro"
+aboutTab.addEventListener('click', function() {
+    audio.play();
+});
+    
+    document.getElementById("quiz-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    var score = 0;
+    var resultText = "";
+    var answers = ["b", "b", "b", "b", "b"]; // Jawaban yang benar
+    var userAnswers = [];
+    var formElements = document.getElementById("quiz-form").elements;
+
+    // Mengambil jawaban pengguna
+    for (var i = 0; i < answers.length; i++) {
+        var userAnswer = formElements["q" + (i + 1)].value;
+        userAnswers.push(userAnswer);
+    }
+
+    // Menghitung skor
+    for (var i = 0; i < answers.length; i++) {
+        if (userAnswers[i] === answers[i]) {
+            score++;
+        }
+    }
+
+    // Menampilkan hasil
+    if (score === answers.length) {
+        resultText = "<p>Selamat! Ibu adalah yang paling sayang bayi!</p>";
+    } else if (score >= answers.length / 2) {
+        resultText = "<p>Ayah dan Ibu memang sama-sama hebat, tapi Ibu lebih menang banyak!</p>";
+    } else {
+        resultText = "<p>Wah, sepertinya Ayah mulai menunjukkan tanda-tanda lebih sayang bayi. Tapi Ibu tetap juara hati bayi!</p>";
+    }
+
+    document.getElementById("result").innerHTML = resultText;
+});
+  </script>
+    
+  </body>
+</html>
