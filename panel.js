@@ -3,10 +3,7 @@ fetch('data.json')
   .then(response => response.json())
   .then(data => {
     // Ambil semua elemen dengan kelas 'namaDepan'
-    const namaPendekElements = document.querySelectorAll('.namaDepan');
-    
-    // Iterasi melalui setiap elemen dan ganti teksnya
-    namaPendekElements.forEach(element => {
+    const namaPendekElements = document.querySelector('#namaDepan');
       element.textContent = data.nama;
     });
   })
